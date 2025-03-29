@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Digital Kirby 2.0</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.zero {
+			display: flex;
+			flex-direction: column;
+
+			min-height: 100vh;
+			min-width: 100vw;
+		}
+
+		.one {
+			flex-grow: 0;
+			padding: 30px;
+		}
+
+		.two {
+			flex-grow: 1;
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			justify-content: center;
+			align-content: center;
+
+		}
+
+		.three {
+
+			background-color: indianred;
+			width: 100vw;
+			height: 50px;
+
+			position: fixed;
+			bottom: 0;
+		}
+
+		h1 {
+			font-size: 108px;
+			text-align: center;
+		}
+
+		.profile img {
+			width: 150px;
+			border: 1px solid black;
+		}
+		.profile h2 {
+			font-size: 32px;
+			text-align: center;
+		}
+
+		.profile {
+			padding: 30px;
+			margin: 15px;
+		}
+
+		.container {
+/*			border: 1px black solid;*/
+		}
+
+		.blank {
+			flex-basis: 100px;
+		}
+
+		.three img {
+			transform: translate(0, -10px);
+		}
+		
+		#star {
+			display: inline-flex;
+			position: absolute;
+
+			right: 100px;
+			top: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container zero">
+		<div class="container one">
+			<h1>Digital Kirby</h1>
+		</div>
+
+		<div class="container two">
+			<div class="container profile">
+				<a href="kirby-a/home.html">
+					<img src="default-profile.png">
+					<h2>Kirby A</h2>
+				</a>
+			</div>
+			<div class="container profile">
+				<a href="kirby-b/home.html">
+					<img src="default-profile.png">
+					<h2>Kirby B</h2>
+				</a>
+			</div>
+			<div class="container profile">
+				<a href="kirby-c/home.html">
+					<img src="default-profile.png">
+					<h2>Kirby C</h2>
+				</a>
+			</div>
+
+			
+		</div>
+		<div class="container blank">
+			This is gonna be footer!
+		</div>
+		
+	</div>
+	<div class="container three">
+		<img src="default-running-profile.gif">
+	</div>
+
+	<img id="star" src="group-code-page.png">
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>kirby-a</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			border: 1px solid black;
+			margin: 10px;
+		}
+
+		.zero {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			min-height: calc(100vh - 50px);
+		}
+
+		.one {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 2;
+		}
+
+		.two {
+			flex-grow: 5;
+			flex-basis: 400px;
+		}
+
+		footer a {
+			display: block;
+			text-align: center;
+		}
+
+		h1 {
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container zero">
+		<div class="container one">
+			<div class="container three">
+				<img src="kirby-a-profile.png">
+				<h1>name</h1>
+			</div>
+			<div class="container four">
+				<p>bio</p>
+				<p>www.test.com/</p>
+			</div>
+		</div>
+
+		<div class="container two">
+			<code>
+				Hello World!
+			</code>
+		</div>
+	</div>
+
+	<footer>
+		<a href="../index.html">Digital Kirby 2.0</a>
+	</footer>
+	
+</body>
+</html>
