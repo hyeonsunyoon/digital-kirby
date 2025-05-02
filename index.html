@@ -5,26 +5,49 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Digital Kirby 2.0</title>
 	<style>
+		
+		@import url('https://fonts.googleapis.com/css2?family=Workbench:SCAN@-6&display=swap');
+		@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+		@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
+
 		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
+			font-family: "Wanted Sans", sans-serif;
+			font-weight: 100;
 		}
 
-		.zero {
+		a {
+			text-decoration: none;
+			color: black;
+		}
+
+		button {
+			padding: 20px;
+			border: 1px solid dimgray;
+			border-radius: 3px;
+		}
+
+		/* .container {
+			border: 1px black solid;
+		} */
+
+		.mother {
 			display: flex;
 			flex-direction: column;
 
 			min-height: 100vh;
-			min-width: 100vw;
+
+			align-items: center;
 		}
 
-		.one {
+		.title {
 			flex-grow: 0;
-			padding: 30px;
+			margin-top: 40px;
 		}
 
-		.two {
+		.members {
 			flex-grow: 1;
 
 			display: flex;
@@ -34,11 +57,54 @@
 			justify-content: center;
 			align-content: center;
 
+			max-width: 2000px;
 		}
 
-		.three {
+		/* title style */
+		h1 {
+			font-family: "Jacquarda Bastarda 9", sans-serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-size: 92px;
+			text-align: center;
+		}
 
-			background-color: indianred;
+		/* profile image style */
+		.profile img {
+			width: 150px;
+			height: 150px; 
+			object-fit: cover
+		}
+
+		/* profile name style */
+		.profile h2 {
+			width: 150px;
+			padding-top: 15px;
+
+			font-size: 16px;
+			text-align: center;
+		}
+
+		/* profile div style */
+		.profile {
+			padding: 30px;
+			margin: 15px;
+		}
+
+		/* footer div style */
+		.footer {
+			flex-basis: 100px;
+			color: lightgrey;
+			text-align: center;
+			align-content: center;
+		}
+
+		
+
+		/* update later */
+		/*
+		.three {
+			background-color: gray;
 			width: 100vw;
 			height: 50px;
 
@@ -46,87 +112,153 @@
 			bottom: 0;
 		}
 
-		h1 {
-			font-size: 108px;
-			text-align: center;
-		}
-
-		.profile img {
-			width: 150px;
-			border: 1px solid black;
-		}
-		.profile h2 {
-			width: 150px;
-			font-size: 32px;
-			text-align: center;
-		}
-
-		.profile {
-			padding: 30px;
-			margin: 15px;
-		}
-
-		/* .container {
-			border: 1px black solid;
-		} */
-
-		.blank {
-			flex-basis: 100px;
-		}
-
 		.three img {
 			transform: translate(0, -10px);
 		}
-		
+
 		#star {
 			display: inline-flex;
 			position: absolute;
 
 			right: 100px;
 			top: 100px;
-		}
+		}*/
 
 	</style>
 </head>
 <body>
-	<div class="container zero">
-		<div class="container one">
+	<div class="container mother">
+		<div class="container title">
 			<h1>Digital Kirby</h1>
 		</div>
 
-		<div class="container two">
+
+
+
+
+
+
+		<div class="container members">
+
+			<!-- 🍎 현선 -->
 			<div class="container profile">
 				<a href="kirby-a/home.html">
-					<img src="default-profile.png">
-					<h2>Hyeonsun yoon</h2>
-				</a>
-			</div>
-			<div class="container profile">
-				<a href="kirby-b/home.html">
-					<img src="default-profile.png">
-					<h2>Kirby B</h2>
-				</a>
-			</div>
-			<div class="container profile">
-				<a href="kirby-c/home.html">
-					<img src="default-profile.png">
-					<h2>Kirby C</h2>
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-a/profile-image.jpg">
+						<h2>현선</h2>
+
+					</button>
 				</a>
 			</div>
 
-			
+
+
+			<!-- 🍊 민경 -->
+			<div class="container profile">
+				<a href="kirby-b/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-b/profile-image.jpeg">
+						<h2>민경</h2>
+
+					</button>
+				</a>
+			</div>
+
+
+
+			<!-- 🍋 예진 -->
+			<div class="container profile">
+				<a href="kirby-c/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-c/profile-image.webp">
+						<h2>예진</h2>
+
+					</button>
+				</a>
+			</div>
+
+
+
+			<!-- 🥝 채원 -->
+			<div class="container profile">
+				<a href="kirby-d/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-d/profile-image.jpeg">
+						<h2>채원</h2>
+
+					</button>
+				</a>
+			</div>
+
+
+
+			<!-- 🫐 도윤 -->
+			<div class="container profile">
+				<a href="kirby-e/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-e/profile-image.jpeg">
+						<h2>도윤</h2>
+
+					</button>
+				</a>
+			</div>
+
+
+
+			<!-- 🍇 민주 -->
+			<div class="container profile">
+				<a href="kirby-f/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-f/profile-image.jpeg">
+						<h2>민주</h2>
+
+					</button>
+				</a>
+			</div>
+
+
+
+			<!-- 🍑 유진 -->
+			<div class="container profile">
+				<a href="kirby-g/home.html">
+					<button>
+
+						<!-- profile image and name -->
+						<img src="kirby-g/profile-image.jpeg">
+						<h2>유진</h2>
+
+					</button>
+				</a>
+			</div>
 		</div>
-		<div class="container blank">
-			This is gonna be footer! changed. now it should be changed. change change change
-			idk whwyw
-			dhdhdhdh
+
+
+
+
+
+
+
+		<div class="container footer">
+			<p>Digital Kirby 2.0 designed by hyeonsun</p>
 		</div>
 		
 	</div>
-	<div class="container three">
+<!-- 	<div class="container three">
 		<img src="default-running-profile.gif">
 	</div>
 
-	<img id="star" src="group-code-page.png">
+	<img id="star" src="group-code-page.png"> -->
 </body>
 </html>

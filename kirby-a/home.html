@@ -3,71 +3,168 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>kirby-a</title>
+	<title>hyeonsunyoon</title>
 	<style>
+		@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+		@font-face {
+		    font-family: 'intelone-mono-font-family-regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');
+		    font-weight: 400;
+		    font-style: normal;
+		}
+
+		html, body {
+			height: 100%;
+			font-family: "Wanted Sans", sans-serif;
+		}
+
+		body {
+			padding: 20px;
+		}
+
 		* {
+			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
 		}
 
-		.container {
-			border: 1px solid black;
-			margin: 10px;
-		}
+		.row {
+			padding: 5px;
 
-		.zero {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-
-			min-height: calc(100vh - 50px);
 		}
 
-		.one {
+		.column {
+			padding: 5px;
+
 			display: flex;
 			flex-direction: column;
-			flex-grow: 2;
+			flex-wrap: wrap;
 		}
 
-		.two {
-			flex-grow: 5;
-			flex-basis: 400px;
+		.container {
+			padding: 5px;
+
+			flex-wrap: wrap; 
+			align-items: flex-start;
 		}
 
-		footer a {
-			display: block;
+		/* profile section style */
+		.left-side {
+			margin: 5px;
+
+			flex-grow: 1;
+			flex-shrink: 1;
+			min-width: 300px;
+		} 
+
+		/* code section style */
+		.right-side {
+			margin: 5px;
+			padding: 20px;
+			border-radius: 8px;
+
+			flex-basis: 600px;
+			flex-grow: 3;
+			flex-shrink: 1;
+			font-family: 'intelone-mono-font-family-regular', monospace;
+			min-width: 300px;
+			min-height: 500px;
+
+			background-color: black;
+			color: white;
+		}
+
+		.profile {
+			align-items: flex-end;
+		}
+
+		/* profile image style */
+		.profile img {
+			border: 1px solid black;
+			width: 66px;
+			height: 66px;
+			border-radius: 50%;
+			object-fit: cover
+		}
+
+		#home {
+			padding: 5px;
 			text-align: center;
 		}
-
-		h1 {
-			display: inline-block;
+		#home a {
+			text-decoration: none;
+		}
+		#name {
+			margin-left: 10px;
+		}
+		hr {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border: 0.25px solid black;
+			height: 0px;
 		}
 
+		
 	</style>
+
+
 </head>
 <body>
-	<div class="container zero">
-		<div class="container one">
-			<div class="container three">
-				<img src="kirby-a-profile.png">
-				<h1>hyeonsunyoon</h1>
+	<div class="row container">
+
+	<!-- profile section start -->
+		<div class="column left-side">
+
+
+
+
+
+			<div class="row profile">
+				<!-- 👤 Change your profile image here -->
+				<img src="profile-image.jpg">
+
+				<!-- 🔖 Change your profile name here -->
+				<h1 id="name">hyeonsunyoon</h1>
 			</div>
-			<div class="container four">
-				<p>bio</p>
-				<p>www.test.com/</p>
+
+			<hr>
+
+			<div class="column bio">
+				<!-- 💬 Change your bio here -->
+				<p>Hello! Kirby!</p> 
+				<p>@hyeonsunyoon</p>
 			</div>
+
+
+
+
+
 		</div>
 
-		<div class="container two">
+
+		<!-- code section start -->
+		<div class="row right-side">
+
+
+
+
+
+			<!-- 💻 Edit code here -->
 			<code>
-				Hello World!
+				print ('Hello World!') -> 이것은 파이썬에서 문자열을 출력하는 코드이다.
 			</code>
-		</div>
-	</div>
 
-	<footer>
-		<a href="../index.html">Digital Kirby 2.0</a>
-	</footer>
+
+
+
+
+		</div>
+		
+	</div>
+	<p id="home"><a href="../index.html">Digital Kirby 2.0</a></p>
 	
 </body>
 </html>

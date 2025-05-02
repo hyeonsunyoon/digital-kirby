@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>yoon's home</title>
+	<style>
+		@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+		@font-face {
+		    font-family: 'intelone-mono-font-family-regular';
+		    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/intelone-mono-font-family-regular.woff2') format('woff2');
+		    font-weight: 400;
+		    font-style: normal;
+		}
+
+		html, body {
+			height: 100%;
+			font-family: "Wanted Sans", sans-serif;
+		}
+
+		body {
+			padding: 20px;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		.row {
+			padding: 5px;
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.column {
+			padding: 5px;
+
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+		}
+
+		.container {
+			padding: 5px;
+
+			flex-wrap: wrap; 
+			align-items: flex-start;
+		}
+
+		/* profile section style */
+		.left-side {
+			margin: 5px;
+
+			flex-grow: 1;
+			flex-shrink: 1;
+			min-width: 300px;
+		} 
+
+		/* code section style */
+		.right-side {
+			margin: 5px;
+			padding: 20px;
+			border-radius: 8px;
+
+			flex-basis: 600px;
+			flex-grow: 3;
+			flex-shrink: 1;
+			font-family: 'intelone-mono-font-family-regular', monospace;
+			min-width: 300px;
+			min-height: 500px;
+
+			background-color: black;
+			color: white;
+		}
+
+		.profile {
+			align-items: flex-end;
+		}
+
+		/* profile image style */
+		.profile img {
+			border: 1px solid black;
+			width: 66px;
+			height: 66px;
+			border-radius: 50%;
+			object-fit: cover
+		}
+
+		#home {
+			padding: 5px;
+			text-align: center;
+		}
+		#home a {
+			text-decoration: none;
+		}
+		#name {
+			margin-left: 10px;
+		}
+		hr {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			border: 0.25px solid black;
+			height: 0px;
+		}
+
+		
+	</style>
+
+
+</head>
+<body>
+	<div class="row container">
+
+	<!-- profile section start -->
+		<div class="column left-side">
+
+
+
+
+
+			<div class="row profile">
+				<!-- 👤 Change your profile image here -->
+				<img src="profile-image.jpeg">
+
+				<!-- 🔖 Change your profile name here -->
+				<h1 id="name">yoon</h1>
+			</div>
+
+			<hr>
+
+			<div class="column bio">
+				<!-- 💬 Change your bio here -->
+				<p>Welcome to Digi-Kir!</p> 
+				<a href="https://ehdbs.neocities.org/clock">What time is it now?</a>
+			</div>
+
+
+
+
+
+		</div>
+
+
+		<!-- code section start -->
+		<div class="row right-side">
+
+
+
+
+
+			<!-- 💻 Edit code here -->
+			<code>
+				your code is going to be here
+			</code>
+
+
+
+
+
+		</div>
+		
+	</div>
+	<p id="home"><a href="../index.html">Digital Kirby 2.0</a></p>
+	
+</body>
+</html>
