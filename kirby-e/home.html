@@ -136,6 +136,8 @@
 				<!-- 💬 Change your bio here -->
 				<p>Welcome to Digi-Kir!</p> 
 				<a href="https://ehdbs.neocities.org/clock">What time is it now?</a>
+				<a href="https://ehdbs.neocities.org/egg">egg</a>
+				<a href="https://ehdbs.neocities.org/">index</a>
 			</div>
 
 
@@ -154,7 +156,34 @@
 
 			<!-- 💻 Edit code here -->
 			<code>
-				your code is going to be here
+				egg 웹페이지 수정사항들
+
+				1. css 변수 : 겹치는 사항들을 :root로 정리해 추후 한 번에 변경 및 관리할 수 있도록 한다. 해당 웹페이지에는 여러 개의 블러 박스가 있어서 블러의 레벨을 변수로 적었다.
+
+				    :root {
+      				--blur-level: 5px;
+    				}
+
+    			2. 폰트가 로컬 폰트일 때 : 로컬 서체 뒤에 sans-serif를 추가하는 이유 : 웹사이트에 접속한 컴퓨터에 pretendard가 없을 시 다른 산세리프 글꼴로 알아서 변경된다.
+
+    				font-family: pretendard, sans-serif;
+
+
+
+    			index 웹페이지 수정사항
+
+    			1. 여러 단의 텍스트 박스 : 여러 개의 요소를 일정하게 배치할 때는 flex와 grid 두 가지를 사용 가능하다. flex는 한 방향만으로 정렬할 수 있고, grid는 조금 더 유연한 사용이 가능하다. 그러나 이번엔 단순히 두 단을 나누는 목적이라 flex를 사용했다.
+
+    			    .flexBox{
+      				position: relative;
+     				display: flex; //컨테이너인 flexBox 안의 요소들을 flex로 정렬하게 됨
+      				flex-wrap: wrap; //부모 컨테이너의 너비보다 자식 요소의 너비가 넓은 경우, 나머지 요소를 다음 줄로 바꿈
+    				}
+
+
+    			*이번 주에 너무 바빠서 많은 내용을 담지는 못했네요..🥹다음 주에 더 분발해보겠습니다*
+
+
 			</code>
 
 
