@@ -133,7 +133,7 @@
 			<hr>
 
 			<div class="column bio">
-				(~_~)
+				(~_~)아자아자
 				<p>Welcome to Digi-Kir!</p> 
 				<p>@j1n.tru3</p>
 			</div>
@@ -154,7 +154,7 @@
 
 			<!-- 💻 Edit code here -->
 			<code>
-				void setup() {
+				//1주차//void setup() {
 					size(600, 220);
 				}
 				void draw () {
@@ -165,6 +165,37 @@
 					}
 					ellipse(mouseX, mouseY, 95, 70)
 				}
+				//2주차-마우스 위치에 따라 움직이는 속도와 색이 변화하는 동그라미를 만들어보았읍니다//
+				int x=100;
+				void setup(){
+				  size(720, 480);
+				}
+				void draw(){
+				  background(0);
+				  fill(mouseX, 100, mouseY); // 마우스 위치에 따라 색 변화
+				  ellipse(x, 225, 100, 100);
+				  x=x+mouseX; //마우스위치(좌우)에 따라 속도비례
+				  if(x >= 800) {
+				      x=-50;
+				      }
+				 }
+				 //2주차-상승하는 면은 만들어보았읍니다. 제멋대로 조합하고 우겨넣은 식이라 단조롭기도 하면서 그래서 뭘 보여주려는 건지 모르겠네요. 다음주엔 더 공부해서 돌아와보겠습니다!//
+				 float a;
+				 void setup(){
+				   size(640, 360);
+				    stroke(255);
+				    a = height/4;
+				   }
+
+				void draw(){
+				  background(60);
+				    fill(mouseX);
+				    rect(0, a, width, a);
+				    a = a - 0.5;
+				    if (a < 0) {
+				    a = height;
+				      }
+				   }
 			</code>
 
 
