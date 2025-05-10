@@ -135,8 +135,8 @@
 			<div class="column bio">
 				<!-- 💬 Change your bio here -->
 				<p>안녕하세요 잘 부탁합니다☺️</p> 
-				<p>https://yejinbvk.github.io/</p>
-				<p>https://www.instagram.com/wavyejin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==</p>
+				<p><a href='https://yejinbvk.github.io'>예진의 명함 웹</a></p>
+				<p><a href='https://www.instagram.com/wavyejin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='>예진의 인스타그램</a></p>
 			</div>
 
 
@@ -155,9 +155,41 @@
 
 			<!-- 💻 Edit code here -->
 			<code>
-				<.body>
-    <.p>안녕하세요 다음주부터 열심히 하겠습니다</.p>
-</.body>
+		PImage original, maskImage, finalImage;
+
+void setup() {
+  size(800, 800);
+  original = loadImage("1.png");
+  original.resize(width, height);
+
+  // 복사해서 마스크 이미지 만들기
+  maskImage = original.copy();
+
+  // 돌같은 실루엣 만들기
+  maskImage.filter(GRAY);
+  maskImage.filter(THRESHOLD, 0.4);  // 임계값 낮출수록 복잡
+  maskImage.filter(ERODE);           // 모양 깎기
+  maskImage.filter(DILATE);          // 다시 붙이기 (모양 둥글게)
+
+  // 알파 채널 마스크 적용
+  PGraphics masked = createGraphics(width, height);
+  masked.beginDraw();
+  masked.image(original, 0, 0);
+  masked.loadPixels();
+  maskImage.loadPixels();
+  for (int i = 0; i < pixels.length; i++) {
+    float alpha = brightness(maskImage.pixels[i]) > 0 ? 255 : 0;
+    masked.pixels[i] = (masked.pixels[i] & 0x00FFFFFF) | ((int)alpha << 24);
+  }
+  masked.updatePixels();
+  masked.endDraw();
+
+  image(masked, 0, 0);
+  masked.save("stone_like_image.png");
+
+  println("완료! 이미지 저장됨.");
+  noLoop();
+}
 			</code>
 
 
