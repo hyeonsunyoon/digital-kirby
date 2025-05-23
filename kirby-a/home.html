@@ -279,6 +279,80 @@
 				<br>
 				프레임마다실행();
 				</p>
+				<br>
+				<br>
+				<p>
+					<span class="comment">// 5월 23일</span><br>
+					const canvas = document.getElementById('canvas');<br>
+					const ctx = canvas.getContext('2d');<br>
+					<br>
+					canvas.width = window.innerWidth - 100;<br>
+					canvas.height = window.innerHeight - 100;<br>
+					<br>
+					const playerImg = document.getElementById('character');<br>
+					<br>
+					playerImg.addEventListener("load", (e) => {<br>
+						&nbsp;ctx.drawImage(playerImg, 0, 0, 200, 100)<br>
+					})<br>
+					<br>
+					<br>
+					let keys = {<br>
+						&nbsp;left: false,<br>
+						&nbsp;right: false<br>
+					}<br>
+					<br>
+					<br>
+					<span class="comment">// 키 입력감지 조건문</span><br>
+					document.addEventListener("keydown", (e) => {<br>
+						&nbsp;if (e.key === "ArrowLeft") {<br>
+							&nbsp;&nbsp;keys.left = true;<br>
+						&nbsp;}<br>
+						&nbsp;if (e.key === "ArrowRight") {<br>
+							&nbsp;&nbsp;keys.right = true;<br>
+						&nbsp;}<br>
+					})<br>
+					<br>
+					document.addEventListener("keyup", (e) => {<br>
+						&nbsp;if (e.key === "ArrowLeft") {<br>
+							&nbsp;&nbsp;keys.left = false;<br>
+						&nbsp;}<br>
+						&nbsp;if (e.key === "ArrowRight") {<br>
+							&nbsp;&nbsp;keys.right = false;<br>
+						&nbsp;}<br>
+					})<br>
+					<br>
+					<br>
+
+
+
+					<span class="comment">// 플레이어 이동함수</span><br>
+					function movePlayer() {<br>
+						&nbsp;const playerLeft = parseFloat(getComputedStyle(player).left);<br>
+						&nbsp;let speed = 3;<br>
+						<br>
+						&nbsp;if (keys.left && playerLeft > 0) {<br>
+							&nbsp;&nbsp;player.style.left = `${playerLeft - speed}px`;<br>
+						&nbsp;}<br>
+						<br>
+						&nbsp;if (keys.right && playerLeft < window.innerWidth - player.offsetWidth) {<br>
+							&nbsp;&nbsp;player.style.left = `${playerLeft + speed}px`;<br>
+						&nbsp;}<br>
+					}<br>
+					<br>
+					<br>
+
+
+
+					<span class="comment">// 게임 루프</span><br>
+					function update() {<br>
+						&nbsp;movePlayer();<br>
+						&nbsp;requestAnimationFrame(update);<br>
+					}<br>
+					<br>
+					<span class="comment">// 게임 실행</span><br>
+					update();<br>
+					<span class="comment">// 계속 작동이 안됐는데 canvas태그 내에 있는 img 요소를 DOM에서 계속 움직이고 있었다... ctx.clearRect 함수로 다음에 수정해볼 것</span>
+				</p>
 			</code>
 
 
