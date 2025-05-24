@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>hyeonsunyoon's home</title>
+	<title>hyeonsunyoon</title>
 	<style>
 		@import url('https://fastly.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
 		@font-face {
@@ -107,6 +107,19 @@
 			height: 0px;
 		}
 
+		code {
+			line-height: 1.3;
+		}
+
+		code a {
+			color: yellow;
+		}
+
+		code .comment {
+			color: grey;
+		}
+
+
 		
 	</style>
 
@@ -134,8 +147,7 @@
 
 			<div class="column bio">
 				<!-- 💬 Change your bio here -->
-				<p>Welcome to Digi-Kir!</p> 
-				<p>www.hyeonsunyoon.com/</p>
+				<p>@hyeonsunyoon</p>
 			</div>
 
 
@@ -154,7 +166,119 @@
 
 			<!-- 💻 Edit code here -->
 			<code>
-				your code is going to be here
+				<p><a href="https://hyeonsunyoon.neocities.org/">현선의 네오시티</a></p>
+				<p><a href="https://hyeonsunyoon.github.io/js-study/">자바스크립트 메모장</a></p>
+
+				<br>
+				<p class="comment">
+					// JS에서 에셋을 만들기 위한 기본 설정
+				</p>
+				<p>
+					var canvas = document.getElementById('canvas');<br>
+					var ctx = canvas.getContext('2d');<br>
+					<br>
+					canvas.width = window.innerWidth - 100;<br>
+					canvas.height = window.innerHeight - 100;<br>
+					<br>
+					ctx.fillStyle = 'green';<br>
+					ctx.fillRect(10,10,100,100);<br>
+				</p>
+				<br>
+				<br>
+				<p class="comment">
+					// 캐릭터의 데이터를 오브젝트 형태로 저장한다. <br>
+					// 파이썬의 dictionary와 비슷한 구조
+				</p>
+				<p>
+					var dino = { <br>
+					&nbsp; x : 10, <br>
+					&nbsp; y : 200 <br>
+					}
+				</p>
+				<p>
+					var canvas = document.getElementById('canvas'); <br>
+					var ctx = canvas.getContext('2d'); <br>
+
+					canvas.width = window.innerWidth - 100; <br>
+					canvas.height = window.innerHeight - 100; <br>
+					 <br>
+					 <br>
+					 <br>
+
+					<span class="comment">// 좌표, 크기, 함수를 변수 dino에 할당</span><br>
+					var dino = { <br>
+					&nbsp;	x : 10, <br>
+					&nbsp;	y : 20, <br>
+					<br>
+					&nbsp;	width : 50, <br>
+					&nbsp;	height : 50, <br>
+					<br>
+					&nbsp;	draw () { <br>
+					&nbsp;&nbsp;ctx.fillStyle = 'green'; <br>
+					&nbsp;&nbsp;ctx.fillRect( this.x, this.y, this.width, this.height ); <br>
+					&nbsp;	} <br>
+					} <br>
+					 <br>
+					dino.draw()
+				</p>
+				<br>
+				<br>
+				<br>
+				<p>
+					<span class="comment">// 새로운 객체 cactus 불러오기 ; Class 사용방법</span><br>
+					var cactus = new Cactus();<br>
+					cactus.draw();<br>
+				</p>
+				<br>
+				<br>
+				<br>
+				<p>
+					<span class="comment">// 1초에 60px 이동하는 애니메이션</span><br>
+					<span class="comment">// 기본 js함수 60fps 그러나 모니터 프레임리셋수에 따라 다름. 1초에 144번 실행될 수도 그런경우 1초에 144px 이동하는 것임.</span><br>
+					function 프레임마다실행() {<br>
+					&nbsp;	requestAnimationFrame(프레임마다실행); <br>
+						<br>
+
+					&nbsp;	<span class="comment">//프레임마다 canvas 리셋하여 잔상 삭제</span> <br>
+					&nbsp;	ctx.clearRect(0,0, canvas.width, canvas.height);<br>
+						<br>
+					&nbsp;	dino.x++;<br>
+					&nbsp;	dino.draw();<br>
+						<br>
+					}<br>
+					<br>
+					프레임마다실행();<br>
+				</p>
+				<br>
+				<br>
+				<p>
+				<span class="comment">//장애물 여러개 관리 → 스폰 후 array에 담기</span><br>
+				var timer = 0;<br>
+				var cacti = []; // 장애물 여러개의 array<br>
+				<br>
+				<br>
+				function 프레임마다실행() {<br>
+				&nbsp;	requestAnimationFrame(프레임마다실행);<br>
+				&nbsp;	timer++;<br>
+					<br>
+				&nbsp;	ctx.clearRect(0,0, canvas.width, canvas.height);<br>	
+					<br>
+				&nbsp;&nbsp;&nbsp;		var cactus = new Cactus();<br>
+				&nbsp;&nbsp;&nbsp;		cactus.draw();<br>
+				&nbsp;&nbsp;&nbsp;		cacti.push(cactus);<br>
+				&nbsp;	}<br>
+					<br>
+				&nbsp;	cacti.forEach((a)=>{<br>
+				&nbsp;&nbsp;&nbsp;		a.x--;<br>
+				&nbsp;&nbsp;&nbsp;		a.draw();<br>
+				&nbsp;	})<br>
+					<br>
+				&nbsp;	dino.draw();<br>
+					<br>
+				}<br>
+				<br>
+				프레임마다실행();
+				</p>
 			</code>
 
 
