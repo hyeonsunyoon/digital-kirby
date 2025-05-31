@@ -177,16 +177,32 @@
 	    			<p>아래 이벤트 리스너는 클릭하면 다음 문장으로 넘어가도록 한다.</p>
 	    		</details>
 	    		<details>
-	    			<summary>5/15 이름 추가 및 선택지 만들기</summary>
+	    			<summary>5/15 이름 추가하기</summary>
 	    			<br>
-	    			<p><strong>1. 이름 추가하기</strong></p><br>
+	    			<p><strong>이름 추가하기</strong></p><br>
 	    			<p>-대사 배열을 문자열에서 객체로 변경하기 : name과 text의 조합으로 변경한다. 이후 관리 및 수정이 용이하다.<br>{ name: "나레이터", text: "안녕, 이곳에 온 걸 환영해." }</p><br><br>
 	    			<p>-name과 text를 구분해서 각각 변수로 저장한다.<br>const nameBox = document.getElementById("name-box");<br>const textBox = document.getElementById("text-box");</p><br><br>
 	    			<p>-typeDialogue 함수가 dialogue 객체를 받도록 설정하고, dialogue.name과 dialogue.text를 따로 출력하게 한다.<br>nameBox.textContent = dialogue.name;<br>textBox.textContent = "";</p><br><br>
 	    			<p>-textContent 속성은 HTML 요소의 텍스트 콘텐츠를 가져오거나 설정한다. DOM 요소(Document Object Model)의 텍스트를 읽거나 바꿀 수 있는 내장 프로퍼티이다.</p><br><br>
 	    			<p>*의문점 : 이런 식으로 코드를 짜면 사실 그냥 게임 엔진으로 작업하는 것과 다를 게 없지 않을까? 얼마 전 재밌게 플레이했던 웹 게임 <a href="https://adarkroom.doublespeakgames.com/">The Dark Room</a>이 흥미로웠던 기억이 난다. 웹이기에 더 흥미로운 게임을 만들려면 어떻게 해야 할까?</p>
-
-
+	    		</details>
+	    		<details>
+	    			<summary>5/23 선택지 만들기</summary><br>
+	    			<p><strong>1. 전역 변수를 지역 변수로 바꾸기</strong></p><br>
+	    			<p>이전의 charIndex라는 변수를 삭제하고, i = 0으로 새로 정의했다.<br><strong>charIndex</strong>는 전역 변수로 "현재 몇 번째 글자인지"를 나타내는 변수로 사용되었다. <strong>i</strong>는 typeDialogue 함수 안에서만 쓰이는 지역변수이다. charIndex는 함수 바깥에서 선언되어서(전역 변수) 다른 함수와 공유될 수 있고, 다른 대사와 섞일 가능성이 있었다. 따라서 함수 내에서만 쓰이는 지역변수 i를 설정하여, 함수가 실행될 때마다 0부터 시작되도록 0으로 정의했다. (코드를 함수 중심으로 관리하고 싶을 때 자주 쓰이는 방식이라고 함 / i는 'index'의 약자이다.)</p><br><br>
+	    			<p><strong>2. 선택지를 고려한 방향으로 코드 수정</strong></p><br>
+	    			<p><strong>2-1. 아직 분기를 고르지 않은 상태에서 메인 대사를 출력 중인 경우</strong><br>if (!currentBranch && current < dialogues.length) {<br>typeDialogue(dialogues[current]);<br>current++;<br>
+	    			<p>!는 부정을 뜻한다. 즉, !currentBranch 이란 currentBranch가 없다면(비어 있다면)이라는 뜻과 유사<br>
+	    			그런데 currentBranch는 null상태(없는 상태)로 시작하므로 !currentBranch는 true가 된다.<br>즉 if (!currentBranch && current < dialogues.length)는<br><br>1. !currentBranch이고(currentBranch가 비어 있고)<br>2. 대사 인덱스가 전체 길이보다 작다면<br>-current번째 dialogues를 출력하라.<br>-current에 하나를 더하라.</p><br>
+	    			<p><strong>2-2. 만약 메인 대사의 마지막 대사까지 출력한 직후라면</strong><br>
+	    			if (current === dialogues.length) {<br>setTimeout(showChoices, 1000);<br>}<br><br>현재 문장(current)이 마지막이라면, 즉 현재 인덱스 번호와 dialogues의 개수가 같다면, 마지막 대사를 방금 출력했다는 뜻. 이때 1초 후 showChoices 함수를 실행하도록 한다.(여유를 주기 위해서)<br>*여기서 1000은 1000ms 즉 1초를 말한다.</p><br>
+	    			<p><strong>3. 분기된 대사 흐름이 있는 경우</strong><br>
+	    			else if (currentBranch && current < currentBranch.length) {<br>typeDialogue(currentBranch[current]);<br>current++;<br>
+	    			<br>
+	    			논리 AND 연산자(&&)는 왼쪽 조건이 거짓이면 오른쪽 조건은 아예 판별하지 않는다. 따라서 currentBranch는 원래 null인 상태로 시작하고, null은 거짓인 값이기 때문에 처음에 이 부분은 실행되지 않는다. currentBranch는 이후 아래에 이어질 함수에서 null->배열 상태로 바뀐다. 이 경우에 currentBranch는 참으로 작동하고, 이후 계산이 진행된다. (아직 남은 문장이 있다면 current번째 문장을 출력 후 인덱스 숫자 추가(다음 대사 위해서)</p><br><br>
+	    			<p><strong>4. js에서 버튼을 생성하고 선택지에 따라 분기되도록 하기</strong><br>
+	    				function showChoices() {<br>choicesBox.innerHTML = "";<br>const button1 = document.createElement("button");<br>button1.textContent = "알았어.";<br>button1.onclick = () => {<br>currentBranch = branch_알았어;<br>current = 0;<br>choicesBox.innerHTML = "";<br>nextDialogue();<br>};<br><br>const button2 = document.createElement("button");<br>button2.textContent = "누가?";<br>button2.onclick = () => {<br>currentBranch = branch_누가;<br>current = 0;<br>choicesBox.innerHTML = "";<br>nextDialogue();<br>};<br><br>choicesBox.appendChild(button1);<br>choicesBox.appendChild(button2);}<br><br>
+	    				위의 함수에서, button1과 2라는 변수를 생성하며 "button"이라는 html 태그를 createElement를 통해 생성한다. 그리고 그 안에 textContent를 통해 텍스트를 작성한다. 클릭하게 되면 currentBranch는 null에서 branch_알았어 혹은 branch_누가가 되고, current는 0이 된다.(branch 안에서 처음부터 시작하도록 초기화)<br>innerHTML은 HTML 요소 안의 내용을 읽거나 바꾸거나 지우는 자바스크립트 속성으로, 비워두는 것으로 버튼 요소를 지운다. 마지막으로 nextDialogue()를 실행한다. 이 경우 else if에서 currentBranch는 참이 되므로 이후 조건이 실행된다.<br>appendChild() 메서드는 새로운 노드를 특정 부모 노드의 자식 노드 리스트 중 마지막 자식으로 붙이는 역할<a href="https://goodafteryoon.tistory.com/165">이라고 한다.</a> 즉 버튼이 choicesBox 그러니까 choice div의 자식 노드가 되어서 나타나게 된다.</p>
 	    		</details>
 			</code>
 
