@@ -119,7 +119,15 @@
 			color: grey;
 		}
 
-
+		pre {
+			white-space: pre-wrap;
+		}
+		pre.example {
+			background-color: darkblue;
+			color: lightgrey;
+			border-radius: 3px;
+			padding: 20px;
+		}
 		
 	</style>
 
@@ -148,6 +156,8 @@
 			<div class="column bio">
 				<!-- 💬 Change your bio here -->
 				<p>@hyeonsunyoon</p>
+				<br>
+				<p>2025년 5월 30일 : <br>오랜만에 네오시티를 업이트 했습니다!</p>
 			</div>
 
 
@@ -164,205 +174,302 @@
 
 
 
-			<!-- 💻 Edit code here -->
-			<code>
-				<p><a href="https://hyeonsunyoon.neocities.org/">현선의 네오시티</a></p>
-				<p><a href="https://hyeonsunyoon.github.io/js-study/">자바스크립트 메모장</a></p>
-
-				<br>
-				<p class="comment">
-					// JS에서 에셋을 만들기 위한 기본 설정
-				</p>
-				<p>
-					var canvas = document.getElementById('canvas');<br>
-					var ctx = canvas.getContext('2d');<br>
-					<br>
-					canvas.width = window.innerWidth - 100;<br>
-					canvas.height = window.innerHeight - 100;<br>
-					<br>
-					ctx.fillStyle = 'green';<br>
-					ctx.fillRect(10,10,100,100);<br>
-				</p>
-				<br>
-				<br>
-				<p class="comment">
-					// 캐릭터의 데이터를 오브젝트 형태로 저장한다. <br>
-					// 파이썬의 dictionary와 비슷한 구조
-				</p>
-				<p>
-					var dino = { <br>
-					&nbsp; x : 10, <br>
-					&nbsp; y : 200 <br>
-					}
-				</p>
-				<p>
-					var canvas = document.getElementById('canvas'); <br>
-					var ctx = canvas.getContext('2d'); <br>
-
-					canvas.width = window.innerWidth - 100; <br>
-					canvas.height = window.innerHeight - 100; <br>
-					 <br>
-					 <br>
-					 <br>
-
-					<span class="comment">// 좌표, 크기, 함수를 변수 dino에 할당</span><br>
-					var dino = { <br>
-					&nbsp;	x : 10, <br>
-					&nbsp;	y : 20, <br>
-					<br>
-					&nbsp;	width : 50, <br>
-					&nbsp;	height : 50, <br>
-					<br>
-					&nbsp;	draw () { <br>
-					&nbsp;&nbsp;ctx.fillStyle = 'green'; <br>
-					&nbsp;&nbsp;ctx.fillRect( this.x, this.y, this.width, this.height ); <br>
-					&nbsp;	} <br>
-					} <br>
-					 <br>
-					dino.draw()
-				</p>
-				<br>
-				<br>
-				<br>
-				<p>
-					<span class="comment">// 새로운 객체 cactus 불러오기 ; Class 사용방법</span><br>
-					var cactus = new Cactus();<br>
-					cactus.draw();<br>
-				</p>
-				<br>
-				<br>
-				<br>
-				<p>
-					<span class="comment">// 1초에 60px 이동하는 애니메이션</span><br>
-					<span class="comment">// 기본 js함수 60fps 그러나 모니터 프레임리셋수에 따라 다름. 1초에 144번 실행될 수도 그런경우 1초에 144px 이동하는 것임.</span><br>
-					function 프레임마다실행() {<br>
-					&nbsp;	requestAnimationFrame(프레임마다실행); <br>
-						<br>
-
-					&nbsp;	<span class="comment">//프레임마다 canvas 리셋하여 잔상 삭제</span> <br>
-					&nbsp;	ctx.clearRect(0,0, canvas.width, canvas.height);<br>
-						<br>
-					&nbsp;	dino.x++;<br>
-					&nbsp;	dino.draw();<br>
-						<br>
-					}<br>
-					<br>
-					프레임마다실행();<br>
-				</p>
-				<br>
-				<br>
-				<p>
-				<span class="comment">//장애물 여러개 관리 → 스폰 후 array에 담기</span><br>
-				var timer = 0;<br>
-				var cacti = []; // 장애물 여러개의 array<br>
-				<br>
-				<br>
-				function 프레임마다실행() {<br>
-				&nbsp;	requestAnimationFrame(프레임마다실행);<br>
-				&nbsp;	timer++;<br>
-					<br>
-				&nbsp;	ctx.clearRect(0,0, canvas.width, canvas.height);<br>	
-					<br>
-				&nbsp;&nbsp;&nbsp;		var cactus = new Cactus();<br>
-				&nbsp;&nbsp;&nbsp;		cactus.draw();<br>
-				&nbsp;&nbsp;&nbsp;		cacti.push(cactus);<br>
-				&nbsp;	}<br>
-					<br>
-				&nbsp;	cacti.forEach((a)=>{<br>
-				&nbsp;&nbsp;&nbsp;		a.x--;<br>
-				&nbsp;&nbsp;&nbsp;		a.draw();<br>
-				&nbsp;	})<br>
-					<br>
-				&nbsp;	dino.draw();<br>
-					<br>
-				}<br>
-				<br>
-				프레임마다실행();
-				</p>
-				<br>
-				<br>
-				<p>
-					<span class="comment">// 5월 23일</span><br>
-					const canvas = document.getElementById('canvas');<br>
-					const ctx = canvas.getContext('2d');<br>
-					<br>
-					canvas.width = window.innerWidth - 100;<br>
-					canvas.height = window.innerHeight - 100;<br>
-					<br>
-					const playerImg = document.getElementById('character');<br>
-					<br>
-					playerImg.addEventListener("load", (e) => {<br>
-						&nbsp;ctx.drawImage(playerImg, 0, 0, 200, 100)<br>
-					})<br>
-					<br>
-					<br>
-					let keys = {<br>
-						&nbsp;left: false,<br>
-						&nbsp;right: false<br>
-					}<br>
-					<br>
-					<br>
-					<span class="comment">// 키 입력감지 조건문</span><br>
-					document.addEventListener("keydown", (e) => {<br>
-						&nbsp;if (e.key === "ArrowLeft") {<br>
-							&nbsp;&nbsp;keys.left = true;<br>
-						&nbsp;}<br>
-						&nbsp;if (e.key === "ArrowRight") {<br>
-							&nbsp;&nbsp;keys.right = true;<br>
-						&nbsp;}<br>
-					})<br>
-					<br>
-					document.addEventListener("keyup", (e) => {<br>
-						&nbsp;if (e.key === "ArrowLeft") {<br>
-							&nbsp;&nbsp;keys.left = false;<br>
-						&nbsp;}<br>
-						&nbsp;if (e.key === "ArrowRight") {<br>
-							&nbsp;&nbsp;keys.right = false;<br>
-						&nbsp;}<br>
-					})<br>
-					<br>
-					<br>
-
-
-
-					<span class="comment">// 플레이어 이동함수</span><br>
-					function movePlayer() {<br>
-						&nbsp;const playerLeft = parseFloat(getComputedStyle(player).left);<br>
-						&nbsp;let speed = 3;<br>
-						<br>
-						&nbsp;if (keys.left && playerLeft > 0) {<br>
-							&nbsp;&nbsp;player.style.left = `${playerLeft - speed}px`;<br>
-						&nbsp;}<br>
-						<br>
-						&nbsp;if (keys.right && playerLeft < window.innerWidth - player.offsetWidth) {<br>
-							&nbsp;&nbsp;player.style.left = `${playerLeft + speed}px`;<br>
-						&nbsp;}<br>
-					}<br>
-					<br>
-					<br>
-
-
-
-					<span class="comment">// 게임 루프</span><br>
-					function update() {<br>
-						&nbsp;movePlayer();<br>
-						&nbsp;requestAnimationFrame(update);<br>
-					}<br>
-					<br>
-					<span class="comment">// 게임 실행</span><br>
-					update();<br>
-					<span class="comment">// 계속 작동이 안됐는데 canvas태그 내에 있는 img 요소를 DOM에서 계속 움직이고 있었다... ctx.clearRect 함수로 다음에 수정해볼 것</span>
-				</p>
-			</code>
+<!-- 💻 Edit code here -->
+<code>
+<p><a href="https://hyeonsunyoon.neocities.org/">현선의 네오시티</a></p>
+<p><a href="https://hyeonsunyoon.github.io/js-study/">자바스크립트 메모장</a></p>
+<br>
 
 
 
 
+
+
+<br>
+<details>
+<summary class="comment">자바스크립트로 게임을 만들어보자!</summary>
+
+
+<p class="comment">// JS에서 에셋을 만들기 위한 기본 설정</p>
+<pre>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth - 100;
+canvas.height = window.innerHeight - 100;
+
+ctx.fillStyle = 'green';
+ctx.fillRect(10,10,100,100);
+</pre>
+<br>
+<br>
+
+
+<p class="comment">// 캐릭터의 데이터를 오브젝트 형태로 저장한다.</p>
+<p class="comment">// 파이썬의 dictionary와 비슷한 구조</p>
+<pre>
+var dino = {
+    x : 10,
+    y : 200
+}
+</pre>
+<br>
+<br>
+
+
+<pre class="example">
+🔴 example
+
+var canvas = document.getElementById('canvas'); 
+var ctx = canvas.getContext('2d'); 
+
+canvas.width = window.innerWidth - 100; 
+canvas.height = window.innerHeight - 100; 
+
+// 좌표, 크기, 함수를 변수 dino에 할당
+var dino = { 
+    x : 10, 
+    y : 20, 
+
+    width : 50, 
+    height : 50, 
+
+    draw () { 
+        ctx.fillStyle = 'green'; 
+        ctx.fillRect( this.x, this.y, this.width, this.height ); 
+    } 
+} 
+
+dino.draw()
+</pre>
+<br>
+<br>
+
+
+<p class="comment">// 새로운 객체 cactus 불러오기 ; Class 사용방법</p>
+<pre>
+var cactus = new Cactus();
+cactus.draw();
+</pre>
+<br>
+<br>
+
+
+<p class="comment">// 1초에 60px 이동하는 애니메이션</p>
+<p class="comment">// 기본 js함수로 모니터 fps에따 이동속도가 달라진다.</p>
+<p class="comment">// 프레임마다 canvas 리셋하여 잔상 삭제</p> 
+<pre>
+function 프레임마다실행() {
+    requestAnimationFrame(프레임마다실행); 
+
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+
+    dino.x++;
+    dino.draw();
+}
+
+프레임마다실행();
+</pre>
+<br>
+<br>
+
+
+<p class="comment">// 장애물 여러개 관리 → 객체 생성 후 array에 담는다!</p>
+<pre>
+var timer = 0;
+var cacti = []; // 장애물 여러개의 array
+</pre>
+<br>
+<br>
+
+
+<pre class="example">
+🔴 example
+
+function 프레임마다실행() {
+    requestAnimationFrame(프레임마다실행);
+    timer++;
+
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+
+    var cactus = new Cactus();
+    cactus.draw();
+    cacti.push(cactus);
+    
+
+    cacti.forEach((a)=>{
+        a.x--;
+        a.draw();
+    })
+    
+    dino.draw();
+}
+
+프레임마다실행();
+</pre>
+</details>
+<br>
+
+
+<details>
+<summary class="comment">비가 오네요.. 의 코드</summary>
+<pre class="example">
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const playerImg = new Image();
+playerImg.src = "player.png";
+const enemyImg = new Image();
+enemyImg.src = "raindrop.png";
+const pointImg = new Image();
+pointImg.src = "umbrella.png";
+
+const player = {
+    x: 100,
+    y: canvas.height - 40,
+    width: 80,
+    height: 40,
+    speed: 3,
+    color: "blue"
+};
+
+let enemies = [];
+let points = [];
+let score = 500;
+let stage = 1;
+let comboCount = 0;
+let comboTimer = null;
+
+let keys = {
+    left: false,
+    right: false,
+    space: false,
+};
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") keys.left = true;
+    if (e.key === "ArrowRight") keys.right = true;
+    if (e.key === " ") keys.space = true;
+});
+
+document.addEventListener("keyup", (e) => {
+    if (e.key === "ArrowLeft") keys.left = false;
+    if (e.key === "ArrowRight") keys.right = false;
+    if (e.key === " ") keys.space = false;
+});
+
+// 충돌 감지
+function isColliding(a, b) {
+    return !(
+        a.x > b.x + b.width ||
+        a.x + a.width < b.x ||
+        a.y > b.y + b.height ||
+        a.y + a.height < b.y
+    );
+}
+
+// 적 생성
+function spawnEnemy() {
+    enemies.push({
+        x: Math.random() * (canvas.width - 40),
+        y: -40,
+        width: 15,
+        height: 36,
+        speed: 2 * stage
+    });
+    setTimeout(spawnEnemy, Math.random() / (stage * stage) + 100);
+}
+
+// 아이템 생성
+function spawnPoint() {
+    points.push({
+        x: Math.random() * (canvas.width - 20),
+        y: -20,
+        width: 51,
+        height: 42,
+        speed: 1
+    });
+    setTimeout(spawnPoint, Math.random() * 10000);
+}
+
+function drawPlayer() {
+    ctx.drawImage(playerImg, player.x, player.y, player.width, player.height);
+}
+
+function drawObjects(objects, image) {
+    for (let obj of objects) {
+    	ctx.drawImage(image, obj.x, obj.y, obj.width, obj.height);
+    }
+}
+
+function updateObjects() {
+    enemies.forEach((e, i) => {
+        e.y += e.speed;
+        if (isColliding(player, e)) {
+            score = Math.max(0, score - (1 + stage));
+            comboCount = 0;
+            enemies.splice(i, 1);
+        } else if (e.y > canvas.height) {
+            enemies.splice(i, 1);
+        }
+    });
+
+    points.forEach((p, i) => {
+        p.y += p.speed;
+        if (isColliding(player, p)) {
+            comboCount++;
+            score += (10 * stage) + (comboCount - 1);
+            clearTimeout(comboTimer);
+            comboTimer = setTimeout(() => comboCount = 0, 3000);
+            points.splice(i, 1);
+        } else if (p.y > canvas.height) {
+            points.splice(i, 1);
+        }
+    });
+}
+
+function movePlayer() {
+    let speed = keys.space ? 6 : 3;
+    if (keys.left) player.x -= speed;
+    if (keys.right) player.x += speed;
+
+    // 경계 제한
+    player.x = Math.max(0, Math.min(canvas.width - player.width, player.x));
+}
+
+function drawScore() {
+    ctx.fillStyle = "black";
+    ctx.font = "20px monospace";
+    ctx.fillText(`HP: ${score}`, 10, 30);
+}
+
+function gameLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    movePlayer();
+    updateObjects();
+    drawPlayer();
+    drawObjects(enemies,enemyImg);
+    drawObjects(points,pointImg);
+    drawScore();
+    requestAnimationFrame(gameLoop);
+}
+
+spawnEnemy();
+spawnPoint();
+setInterval(() => stage++, 15000);
+gameLoop();
+</pre>
+<br>
+<p class="comment">다음에 한 줄 한 줄 뜯어보자!</p>
+</details>
+
+
+</code>
 
 		</div>
 		
 	</div>
-	<p id="home"><a href="../index.html">Digital Kirby 2.0</a></p>
 	
+<p id="home"><a href="../index.html">Digital Kirby 2.0</a></p>
 </body>
 </html>

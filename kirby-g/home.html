@@ -133,9 +133,9 @@
 			<hr>
 
 			<div class="column bio">
-				print (~_~)
+				(~_~)아자아자
 				<p>Welcome to Digi-Kir!</p> 
-				<p>www.kirby-f.com/</p>
+				<p>@j1n.tru3</p>
 			</div>
 
 
@@ -154,7 +154,160 @@
 
 			<!-- 💻 Edit code here -->
 			<code>
-				your code is going to be here
+				//1주차//void setup() {
+					size(600, 220);
+				}
+				void draw () {
+					if (mousePressed) {
+						fill(50);
+					} else {
+						fill(255);
+					}
+					ellipse(mouseX, mouseY, 95, 70)
+				}
+
+				//2주차-마우스 위치에 따라 움직이는 속도와 색이 변화하는 동그라미를 만들어보았읍니다//
+				int x=100;
+				void setup(){
+				  size(720, 480);
+				}
+				void draw(){
+				  background(0);
+				  fill(mouseX, 100, mouseY); // 마우스 위치에 따라 색 변화
+				  ellipse(x, 225, 100, 100);
+				  x=x+mouseX; //마우스위치(좌우)에 따라 속도비례
+				  if(x >= 800) {
+				      x=-50;
+				      }
+				 }
+				 //2주차-상승하는 면을 만들어보았읍니다. 제멋대로 조합하고 우겨넣은 식이라 단조롭기도 하면서 그래서 뭘 보여주려는 건지 모르겠네요. 다음주엔 더 공부해서 돌아와보겠습니다!//
+				 float a;
+				 void setup(){
+				   size(640, 360);
+				    stroke(255);
+				    a = height/4;
+				   }
+
+				void draw(){
+				  background(60);
+				    fill(mouseX);
+				    rect(0, a, width, a);
+				    a = a - 0.5;
+				    if (a < 0) {
+				    a = height;
+				      }
+				   }
+
+				 //3주차-array 배열 요소 설정 법
+				 int[] myNum = new int[10];
+				 myNum [0] = 1;
+				 myNum [1] = 2;
+				 myNum [2] = 4;
+				 myNum [3] = 8;
+				 myNum [4] = 16; // 이라고 작성하거나 int[] myNum = {1,2,4,8,16};이라고 작성하면 됨
+				 int[] myNum = new int[5];
+//3주차 예제1.
+int x, y;
+int index;
+
+void setup() {
+  size(720, 480);
+  background(255);
+  myNum [0] = 1;
+  myNum [1] = 20;
+  myNum [2] = 400;
+  myNum [3] = 8000;
+  myNum [4] = 16000; // 이라고 작성하거나 int[] myNum = {1,2,4,8,16};이라고 작성하면 됨
+}
+void draw() {
+  index=int(random(5)); // 랜덤한 순번 만듦
+  x = int(random(width));
+  y = int(random(height)); // 랜덤한 위치 구함
+  fill(30);
+  textSize(30);
+  text(myNum[index], x, y);
+  println(myNum[index]);
+} 
+
+//3주차 예제2를 토대로 내 맘대로 변경해본 식: 랜덤한 숫자와 그에따른 동그라미 크기와 색
+int[] myNum = new int[5];
+int x, y;
+int index;
+
+void setup() {
+  size(720, 480);
+  background(255);
+  frameRate(5);
+  myNum [0] = 10;
+  myNum [1] = 40;
+  myNum [2] = 80;
+  myNum [3] = 130;
+  myNum [4] = 190; // 이라고 작성하거나 int[] myNum = {1,2,4,8,16};이라고 작성하면 됨
+}
+void draw() {
+  index=int(random(5)); // 랜덤한 순번 만듦
+  x = int(random(width));
+  y = int(random(height)); // 랜덤한 위치 구함
+  fill(myNum[index]*2, myNum[index]*1, 150);
+  ellipse(x, y, myNum[index]*2, myNum[index]*2);
+  fill(30);
+  textSize(myNum[index]);
+  textAlign(CENTER, CENTER);
+  text(myNum[index], x, y);
+  println(myNum[index]);
+}
+
+//3주차 예제4
+int[] myNum=new int[5];
+int x, y;
+int chance;
+int index;
+int count=0; //파일명 순번 변수 선언
+
+void setup() {
+  size(720,480);
+  background(255);
+  frameRate(5);
+  noStroke(); //외곽선 제거
+  myNum[0]=7;
+  myNum[1]=15;
+  myNum[2]=37;
+  myNum[3]=75;
+  myNum[4]=160;
+}
+
+void draw() {
+  fill(255, 5);
+  rect(0, 0, width, height); //잔상효과를 위한 반투명 사각형 추가
+  chance = int(random(100));
+  x = int(random(width));
+  y = int(random(height));
+  if (chance < 50) {
+    fill(#3DE1F2);
+    index=2;
+  } else if (chance < 70) {
+    fill(#9865A7);
+    index=1;
+  } else if (chance < 90) {
+    fill(#76E577);
+    index=0;
+  } else if (chance < 95) {
+    fill(#F08A1D);
+    index=3;
+  } else {
+    fill(#F08CE3);
+    index=4;  
+  }
+  ellipse(x, y, myNum[index]*2, myNum[index]*2);
+  fill(30);
+  textSize(myNum[index]);
+  textAlign(CENTER, CENTER);
+  text(myNum[index], x, y);
+  println(myNum[index]);
+  }
+
+
+
 			</code>
 
 
